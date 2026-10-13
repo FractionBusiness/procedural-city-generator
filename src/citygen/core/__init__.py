@@ -1,0 +1,1 @@
+"""Core synthesis loop — pipeline, types, and stage contracts."""
