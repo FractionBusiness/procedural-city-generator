@@ -1,0 +1,16 @@
+# Coastal preset — salt air, tighter grids, waterfront promenades
+extends: default
+grid:
+  block_size_m: 72
+  max_blocks: 6000
+zoning:
+  residential: 0.44
+  commercial: 0.27
+  industrial: 0.09
+  parkland: 0.20
+roads:
+  arterial_spacing_m: 480
+  curvature_penalty: 0.15
+diffusion:
+  guidance: 7.2
+  steps: 32
