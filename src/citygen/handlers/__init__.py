@@ -1,0 +1,1 @@
+"""Stage handlers — one per synthesis stage, all consuming CitySpec."""
