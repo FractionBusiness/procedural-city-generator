@@ -1,0 +1,38 @@
+# procedural-city-generator — default generation profile
+project:
+  name: "baseline-metropolis"
+  seed: 20260117
+  output_dir: "./out"
+
+grid:
+  block_size_m: 90
+  road_width_m: 14
+  sidewalk_width_m: 3
+  max_blocks: 4096
+
+diffusion:
+  checkpoint: "models/checkpoints/block_diffuser_v3.onnx"
+  steps: 24
+  guidance: 6.5
+  tile_px: 512
+  batch: 8
+  device: "auto"   # auto | cpu | dml
+
+roads:
+  solver: "hybrid_astar"
+  arterial_spacing_m: 620
+  local_spacing_m: 140
+  curvature_penalty: 0.35
+  min_intersection_deg: 55
+
+zoning:
+  residential: 0.52
+  commercial: 0.21
+  industrial: 0.14
+  parkland: 0.13
+  density_gradient: 0.7
+
+export:
+  formats: ["obj", "gltf", "geojson"]
+  bake_navmesh: true
+  lod_levels: 3
