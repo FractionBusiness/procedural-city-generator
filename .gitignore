@@ -1,0 +1,47 @@
+# Byte-compiled / cached
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual envs
+.venv/
+venv/
+env/
+ENV/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Generated city artifacts
+out/
+exports/
+*.citypack
+*.osm.bin
+*.tilecache
+
+# Model weights (kept in LFS or external bucket)
+models/checkpoints/*.pt
+models/checkpoints/*.onnx
+!models/checkpoints/.gitkeep
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Logs
+logs/
+*.log
