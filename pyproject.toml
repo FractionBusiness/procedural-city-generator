@@ -1,0 +1,59 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "procedural-city-generator"
+version = "0.9.3"
+description = "AI-driven procedural city generator for Windows desktop — diffusion block synthesis, road graph solvers, zoning sim."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Sam Okafor", email = "sam@proceduralcity.dev" }]
+keywords = ["procedural-generation", "citygen", "diffusion", "graph-solver", "urban-sim"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Win32 (MS Windows)",
+  "Intended Audience :: Developers",
+  "Topic :: Games/Entertainment :: Simulation",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+  "numpy>=1.26,<3",
+  "networkx>=3.2",
+  "shapely>=2.0",
+  "pydantic>=2.7,<3",
+  "PySide6>=6.7",
+  "torch>=2.3 ; platform_system == 'Windows'",
+  "onnxruntime>=1.18",
+  "pyyaml>=6.0",
+  "rich>=13.7",
+  "loguru>=0.7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "pytest-qt>=4.4",
+  "ruff>=0.5",
+  "mypy>=1.10",
+  "black>=24.4",
+]
+gpu = ["torch-directml>=0.2 ; platform_system == 'Windows'"]
+
+[project.scripts]
+citygen = "citygen.bootstrap.cli:main"
+citygen-gui = "citygen.bootstrap.desktop:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/citygen"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
